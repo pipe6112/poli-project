@@ -11,7 +11,7 @@ services:
       MYSQL_PASSWORD: user2020
     ports:
       # puerto externo: puerto interno
-      - 3306:3306
+      - 33069:3306
     volumes:
       - ./database/schemas:/var/lib/mysql
     networks:
@@ -25,10 +25,10 @@ services:
       context: ./
       dockerfile: dockerfile
     ports:
-      - 8000:80
+      - 8200:80
     volumes:
-      - ./example-prod:/var/www/
-      - ./example-prod/public:/var/www/html
+      - ./POLI-study-project/var/www/
+      - ./POLI-study-project/public:/var/www/html
     networks:
       laravel_prod_net:
         ipv4_address: 173.22.100.10
@@ -46,5 +46,4 @@ networks:
     ipam:
       driver: default
       config:
-        - 
-          subnet: 173.22.100.0/24
+        - subnet: 173.22.100.0/24
